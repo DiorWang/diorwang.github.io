@@ -1,0 +1,448 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #2c3e50;
+    --accent-color: #3498db;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--primary-color);
+}
+
+/* 導航欄樣式 */
+.nav-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-right: 2rem;
+    cursor: default;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.lang-switch {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 首頁樣式 */
+/* 修改首頁樣式 */
+.home-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 8rem;
+    flex-wrap: wrap;
+}
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2rem 0;
+    /* border: 5px solid var(--accent-color); */
+}
+.position-text {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-top: 1.2rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: slideUp 0.5s 0.6s forwards;
+    font-weight: 500;
+}
+
+
+/* 文字样式微调 */
+.home-content h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+/* .animated-text {
+    position: relative;
+    height: 70px;
+    overflow: hidden;
+} */
+.animated-text .name {
+    font-size: 3rem;
+    font-weight: 700;
+    display: block;
+    color: var(--accent-color);
+    display: inline-block;
+    animation: slideUp 0.5s forwards;
+    opacity: 0;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .text-group {
+        align-items: center;
+        order: -1;
+    }
+    
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* 添加 about 頁面樣式 */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+.expertise-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.expertise-item {
+    background: rgba(52, 152, 219, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-3px);
+}
+
+.expertise-item i {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    margin-right: 1rem;
+    width: 30px;
+}
+
+/* 響應式優化 */
+@media (max-width: 768px) {
+    .about-content {
+        padding: 1rem;
+    }
+    
+    .expertise-item {
+        padding: 1rem;
+    }
+}
+ /* 添加成就页面样式 */
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s forwards;
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-right: 2rem;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    flex-grow: 1;
+    border-left: 3px solid var(--accent-color);
+}
+
+.timeline-content h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.timeline-time {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: var(--secondary-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* 时间线连接线 */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--accent-color);
+    opacity: 0.2;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-icon {
+        margin: 0 auto 1rem;
+    }
+    
+    .timeline-content {
+        margin-left: 0;
+        border-left: none;
+        border-top: 3px solid var(--accent-color);
+    }
+    
+    .timeline-container::before {
+        display: none;
+    }
+}
+/* 添加联系页面样式 */
+.contact-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.1);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.contact-detail {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+/* 响应式优化 */
+@media (max-width: 480px) {
+    .contact-item {
+        padding: 1rem;
+    }
+    
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 1rem;
+    }
+    
+    .contact-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .contact-label {
+        font-size: 1rem;
+    }
+    
+    .contact-detail {
+        font-size: 0.85rem;
+    }
+}
+/* 其他頁面樣式 */
+section {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-links a {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .home-content h1 {
+        font-size: 2rem;
+    }
+    
+    .animated-text .name {
+        font-size: 2.2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

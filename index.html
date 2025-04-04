@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior Wang | Personal Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet"> -->
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <div class="logo">Dior.dev</div>
+            <div class="nav-links">
+                <a onclick="showSection('home')" data-zh="首頁" data-en="Home">Home</a>
+                <a onclick="showSection('about')" data-zh="關於我" data-en="About">About</a>
+                <a onclick="showSection('achievement')" data-zh="成就" data-en="Achievement">Achievement</a>
+                <a onclick="showSection('contact')" data-zh="聯繫" data-en="Contact">Contact</a>
+            </div>
+            <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+        </nav>
+    </div>
+
+    <section id="home">
+        <div class="home-content">
+            <div class="text-group">
+                <h1 data-zh="你好，我是" data-en="Hello, I am">Hello, I am</h1>
+                <div class="animated-text">
+                    <span class="name" data-zh="汪煦曜" data-en="Dior Wang">Dior Wang</span>
+                </div>
+                <div class="position-text" 
+                    data-zh="Python 開發者 | AI 工程師"
+                    data-en="Python Developer | AI Engineer">
+                    Python Developer | AI Engineer
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:diorwang1206@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/Dyeus-wwww" target="_blank"><i class="fab fa-github"></i></a>
+                    <!-- <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a> -->
+                </div>
+            </div>
+            <img src="assets/images/profile.png" alt="Profile Photo" class="profile-img">
+        </div>
+    </section>
+
+    <section id="about" class="hidden">
+        <h2 data-zh="關於我" data-en="About Me">About Me</h2>
+        <div class="about-content">
+            <p data-zh="我有五年 Python 開發經驗..." 
+               data-en="I have 5 years of Python coding experience...">
+                I have 5 years of Python coding experience...
+            </p>
+            
+            <div class="expertise-list">
+                <div class="expertise-item">
+                    <i class="fas fa-brain"></i>
+                    <span data-zh="機器學習系統開發" 
+                          data-en="Machine Learning Systems">Machine Learning Systems</span>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-robot"></i>
+                    <span data-zh="深度學習模型部署" 
+                          data-en="Deep Learning Deployment">Deep Learning Deployment</span>
+                </div>
+                <!-- 添加更多技能項目 -->
+            </div>
+        </div>
+    </section>
+
+<!-- 在 projects 和 contact 部分之间添加 -->
+    <section id="achievement" class="hidden">
+        <h2 data-zh="重要成就" data-en="Key Achievements">Key Achievements</h2>
+        <div class="timeline-container">
+            <!-- GenAIoT 成就 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3 data-zh="香港城市大學 GenAIoT 計劃學員" 
+                        data-en="GenAIoT Programme Scholar">
+                        GenAIoT Programme Scholar
+                    </h3>
+                    <div class="timeline-time" 
+                        data-zh="2024年5月 - 2025年1月" 
+                        data-en="May 2024 - Jan 2025">
+                        May 2024 - Jan 2025
+                    </div>
+                    <p data-zh="香港城市大學電機工程系人工智能與物聯網計畫學生"
+                    data-en="Student of GenAIoT Programme of City University of Hong Kong Department of Electrical">
+                    Student of GenAIoT Programme of  City University of Hong Kong Department of Electrical
+                    </p>
+                </div>
+            </div>
+
+            <!-- IOAAI 成就 -->
+            <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="timeline-content">
+                    <h3 data-zh="國際人工智能奧林匹克香港隊成員" 
+                        data-en="IOAI Team Hong Kong Member">
+                        IOAAI Team Member
+                    </h3>
+                    <div class="timeline-time" 
+                        data-zh="2025至今" 
+                        data-en="2025 - Present">
+                        2025 - Present
+                    </div>
+                    <p data-zh="代表香港參加國際人工智能奧林匹克競賽"
+                    data-en="Representing Hong Kong in International AI Olympiad">
+                        Representing Hong Kong in International AI Olympiad
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 修改 Contact 部分 -->
+    <section id="contact" class="hidden">
+        <h2 data-zh="聯繫方式" data-en="Contact">Contact</h2>
+        <div class="contact-container">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/85251726781" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label" data-zh="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+                    <span class="contact-detail">+852 5172 6781</span>
+                </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:diorwang1206@gmail.com" class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label" data-zh="電子郵件" data-en="Email">Email</span>
+                    <span class="contact-detail">diorwang1206@gmail.com</span>
+                </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/Dyeus-wwww" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-label" data-zh="代碼倉庫" data-en="GitHub">GitHub</span>
+                    <span class="contact-detail">Dyeus-wwww</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
