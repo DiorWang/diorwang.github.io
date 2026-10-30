@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dior Wang | Personal Website</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <div class="nav-container">
@@ -18,7 +17,12 @@
                 <a onclick="showSection('achievement')" data-zh="成就" data-en="Achievement">Achievement</a>
                 <a onclick="showSection('contact')" data-zh="聯繫" data-en="Contact">Contact</a>
             </div>
-            <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+            <div class="nav-actions">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <button class="theme-switch" type="button" onclick="toggleTheme()" aria-label="Switch to dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
         </nav>
     </div>
 
@@ -37,19 +41,18 @@
                 <div class="contact-links">
                     <a href="mailto:diorwang1206@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="https://github.com/Dyeus-wwww" target="_blank"><i class="fab fa-github"></i></a>
-                    <!-- <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a> -->
                 </div>
             </div>
-            <img src="assets/images/profile.png" alt="Profile Photo" class="profile-img">
+            <img class="profile-img" src="assets/images/profile.png" alt="Portrait of Dior Wang" width="1280" height="1105" fetchpriority="high">
         </div>
     </section>
 
     <section id="about" class="hidden">
         <h2 data-zh="關於我" data-en="About Me">About Me</h2>
         <div class="about-content">
-            <p data-zh="我有五年 Python 開發經驗..." 
-               data-en="I have 5 years of Python coding experience...">
-                I have 5 years of Python coding experience...
+            <p data-zh="我是一名擁有五年 Python 開發經驗的開發者，專注於將人工智能概念轉化為實際可用的工具。我的興趣涵蓋機器學習系統、深度學習模型部署、數據分析，以及生成式 AI 與物聯網的結合。我喜歡探索軟件如何與實體世界互動，尤其關注教育、智慧城市及日常生活中的應用。從參與國際 AI 競賽，到與團隊製作原型及在創客展覽分享項目，我不斷尋找將技術知識付諸實踐的機會。除了編程，我亦參與戲劇表演，重視創意、溝通與團隊合作在解決問題過程中的作用。"
+               data-en="I am a Python developer with five years of experience and a focus on turning AI concepts into practical tools. My interests span machine-learning systems, deep-learning deployment, data analysis, and the intersection of generative AI and IoT. I enjoy exploring how software can interact with the physical world, particularly in education, smart cities, and everyday life. From international AI competitions to collaborative prototypes and maker exhibitions, I look for opportunities to put technical knowledge into practice and share what I build. Beyond programming, I also take part in drama, bringing an appreciation for creativity, communication, and teamwork to the way I approach problems.">
+                I am a Python developer with five years of experience and a focus on turning AI concepts into practical tools. My interests span machine-learning systems, deep-learning deployment, data analysis, and the intersection of generative AI and IoT. I enjoy exploring how software can interact with the physical world, particularly in education, smart cities, and everyday life. From international AI competitions to collaborative prototypes and maker exhibitions, I look for opportunities to put technical knowledge into practice and share what I build. Beyond programming, I also take part in drama, bringing an appreciation for creativity, communication, and teamwork to the way I approach problems.
             </p>
             
             <div class="expertise-list">
@@ -63,66 +66,236 @@
                     <span data-zh="深度學習模型部署" 
                           data-en="Deep Learning Deployment">Deep Learning Deployment</span>
                 </div>
-                <!-- 添加更多技能項目 -->
+                <div class="expertise-item">
+                    <i class="fas fa-cloud"></i>
+                    <span data-zh="雲端AI解決方案" 
+                          data-en="Cloud AI Solutions">Cloud AI Solutions</span>
+                </div>
+                <div class="expertise-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span data-zh="數據分析與可視化" 
+                          data-en="Data Analysis & Visualization">Data Analysis & Visualization</span>
+                </div>
             </div>
         </div>
     </section>
 
-<!-- 在 projects 和 contact 部分之间添加 -->
     <section id="achievement" class="hidden">
         <h2 data-zh="重要成就" data-en="Key Achievements">Key Achievements</h2>
         <div class="timeline-container">
-            <!-- GenAIoT 成就 -->
-            <div class="timeline-item">
+            <div class="timeline-item" data-date="2026-09-20">
+                <div class="timeline-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="獲選參加 HackMIT 2026" data-en="Selected to Compete at HackMIT 2026">Selected to Compete at HackMIT 2026</h3>
+                        <div class="timeline-time" data-zh="賽事日期：2026年9月19日至20日" data-en="Event: Sep 19 - 20, 2026">Event: Sep 19 - 20, 2026</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="獲頒卓越證書，確認從 HackMIT China 獲選參加於 2026年9月19日至20日舉行的 HackMIT。" data-en="Received a Certificate of Excellence confirming selection from HackMIT China to compete at HackMIT on September 19–20, 2026.">Received a Certificate of Excellence confirming selection from HackMIT China to compete at HackMIT on September 19–20, 2026.</p>
+                    <div class="achievement-media"><img src="assets/images/hackmit.png" alt="Certificate of Excellence presented to Xuyao Wang for selection from HackMIT China to compete at HackMIT, September 19–20, 2026" loading="lazy"></div>
+                </div>
+            </div>
+
+            <!-- GenAIoT Achievement -->
+            <div class="timeline-item" data-date="2025-01-31">
                 <div class="timeline-icon">
                     <i class="fas fa-university"></i>
                 </div>
                 <div class="timeline-content">
-                    <h3 data-zh="香港城市大學 GenAIoT 計劃學員" 
-                        data-en="GenAIoT Programme Scholar">
-                        GenAIoT Programme Scholar
-                    </h3>
-                    <div class="timeline-time" 
-                        data-zh="2024年5月 - 2025年1月" 
-                        data-en="May 2024 - Jan 2025">
-                        May 2024 - Jan 2025
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="香港城市大學 GenAIoT 計劃學員" 
+                            data-en="GenAIoT Programme Scholar">
+                            GenAIoT Programme Scholar
+                        </h3>
+                        <div class="timeline-time" 
+                            data-zh="2024年5月 - 2025年1月" 
+                            data-en="May 2024 - Jan 2025">
+                            May 2024 - Jan 2025
+                        </div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
                     </div>
-                    <p data-zh="香港城市大學電機工程系人工智能與物聯網計畫學生"
-                    data-en="Student of GenAIoT Programme of City University of Hong Kong Department of Electrical">
-                    Student of GenAIoT Programme of  City University of Hong Kong Department of Electrical
+                    <p data-zh="參與香港城市大學電機工程系的 GenAIoT 計劃，探索生成式人工智能與物聯網技術如何結合，應用於真實環境。透過智慧城市相關項目的開發，進一步認識 AI 如何與互聯裝置協作，將數據轉化為實用功能。這段經歷讓我把 Python 與人工智能的興趣延伸至軟硬件整合，並思考如何讓技術回應日常生活中的需要。"
+                       data-en="Participated in the GenAIoT Programme at the Department of Electrical Engineering, City University of Hong Kong, exploring how generative AI and Internet of Things technologies can work together in real-world settings. Developed ideas for smart city applications, connecting an interest in Python and AI with the possibilities of connected devices. The programme broadened my perspective beyond standalone software and encouraged me to think about how intelligent systems can respond to everyday needs.">
+                        Participated in the GenAIoT Programme at the Department of Electrical Engineering, City University of Hong Kong, exploring how generative AI and Internet of Things technologies can work together in real-world settings. Developed ideas for smart city applications, connecting an interest in Python and AI with the possibilities of connected devices. The programme broadened my perspective beyond standalone software and encouraged me to think about how intelligent systems can respond to everyday needs.
                     </p>
+                    <div class="achievement-media"><img src="assets/images/cityu-genaiot-certificate.png" alt="Certificate of Completion for the Generative AI and AIoT Coding Skills Gifted Education Programme, City University of Hong Kong, January 2025"></div>
                 </div>
             </div>
 
-            <!-- IOAAI 成就 -->
-            <div class="timeline-item">
+            <div class="timeline-item" data-date="2025-08-09">
                 <div class="timeline-icon">
                     <i class="fas fa-trophy"></i>
                 </div>
                 <div class="timeline-content">
-                    <h3 data-zh="國際人工智能奧林匹克香港隊成員" 
-                        data-en="IOAI Team Hong Kong Member">
-                        IOAAI Team Member
-                    </h3>
-                    <div class="timeline-time" 
-                        data-zh="2025至今" 
-                        data-en="2025 - Present">
-                        2025 - Present
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="國際人工智能奧林匹克香港隊成員" 
+                            data-en="International Olympiad in Artificial Intelligence">
+                            International Olympiad in Artificial Intelligence
+                        </h3>
+                        <div class="timeline-time" 
+                            data-zh="2025至今" 
+                            data-en="2025 - Present">
+                            Aug 2 - 9, 2025
+                        </div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
                     </div>
-                    <p data-zh="代表香港參加國際人工智能奧林匹克競賽"
-                    data-en="Representing Hong Kong in International AI Olympiad">
-                        Representing Hong Kong in International AI Olympiad
+                    <p data-zh="獲選為香港代表隊四名成員之一，參加國際人工智能奧林匹克競賽，與來自世界各地的隊伍交流及競技。賽事挑戰涵蓋電腦視覺、自然語言處理及強化學習，要求把理論知識應用於實際的 AI 問題。這段經歷讓我進一步體會嚴謹分析、實驗及團隊協作的重要性，亦推動我持續深化對機器學習的理解。"
+                       data-en="Selected as one of four team members to represent Hong Kong at the International Olympiad in Artificial Intelligence, competing alongside teams from around the world. Tackled challenges involving computer vision, natural language processing, and reinforcement learning, applying AI knowledge to practical problems in a competitive setting. The experience reinforced the importance of careful analysis, experimentation, and teamwork, while motivating me to keep developing a deeper understanding of machine learning.">
+                        Selected as one of four team members to represent Hong Kong at the International Olympiad in Artificial Intelligence, competing alongside teams from around the world. Tackled challenges involving computer vision, natural language processing, and reinforcement learning, applying AI knowledge to practical problems in a competitive setting. The experience reinforced the importance of careful analysis, experimentation, and teamwork, while motivating me to keep developing a deeper understanding of machine learning.
                     </p>
+                    <div class="achievement-media"><img src="assets/images/ioai-honourable-mention.png" alt="Honourable Mention certificate from the 2nd International Olympiad in Artificial Intelligence, Beijing, August 2 to 9, 2025"></div>
                 </div>
             </div>
+
+            <div class="timeline-item" data-date="2024-12-31">
+                <div class="timeline-icon">
+                    <i class="fas fa-masks-theater"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="學校戲劇社成員" data-en="School Drama Club Member">School Drama Club Member</h3>
+                        <div class="timeline-time" data-zh="2024 · 戲劇與表演" data-en="2024 · Theater & Drama">2024 · Theater & Drama</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="參與學校戲劇製作，透過排練與演出培養即興發揮、角色塑造及舞台表達技巧，並於香港學校朗誦節獲得三項戲劇二人對話獎項。與搭檔及其他演員合作的過程，讓我學習細心聆聽、掌握節奏，以及從不同角色的角度理解故事。戲劇亦為我提供編程以外的創作空間，讓我在表達想法及與人合作時更有信心。" data-en="Performed in school productions, developing improvisation, character interpretation, and stage presence through rehearsal and performance. Received three Dramatic Duo awards at the Hong Kong Speech Festival. Working with scene partners and fellow performers taught me to listen closely, respond to others, and approach a story from different perspectives. Drama gives me a creative outlet beyond programming and strengthens the communication and collaboration skills I bring to technical projects.">Performed in school productions, developing improvisation, character interpretation, and stage presence through rehearsal and performance. Received three Dramatic Duo awards at the Hong Kong Speech Festival. Working with scene partners and fellow performers taught me to listen closely, respond to others, and approach a story from different perspectives. Drama gives me a creative outlet beyond programming and strengthens the communication and collaboration skills I bring to technical projects.</p>
+                    <div class="achievement-media"><img src="assets/images/hong-kong-speech-festival-2022-dramatic-duologue-first-place.png" alt="First Place Certificate of Merit for Dramatic Duologue at the 74th Hong Kong Schools Speech Festival, 2022"></div>
+                    <div class="achievement-media"><img src="8766ad0dee84ba1d72bb4cd91d5e9929.jpg" alt="Certificate of Merit for Public Speaking Solo at the Hong Kong Schools Speech Festival"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2026-03-29">
+                <div class="timeline-icon">
+                    <i class="fas fa-hands-bubbles"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="HackMIT China 2026 教育組隊長" data-en="HackMIT China 2026 Education Track Team Leader">HackMIT China 2026 Education Track Team Leader</h3>
+                        <div class="timeline-time" data-zh="2026年3月27日至29日" data-en="Mar 27 - 29, 2026">Mar 27 - 29, 2026</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="擔任 HackMIT China 2026 教育組隊長，與團隊共同開發 WashPal 兒童洗手系統。項目結合 OpenCV 與 Raspberry Pi，評估洗手動作並提供即時回饋，旨在協助兒童以互動方式學習正確的洗手方法。這個項目把電腦視覺、實體硬件與教育應用結合，讓我在短時間內與隊友一起把生活中的需要轉化為可展示的技術原型。" data-en="Led our Education Track team at HackMIT China 2026 and co-developed WashPal, a handwashing system designed for children. The project combines OpenCV and Raspberry Pi to assess handwashing technique and provide real-time feedback, with the aim of making hygiene education more interactive. Bringing together computer vision, physical hardware, and an educational use case, WashPal gave us an opportunity to turn an everyday need into a demonstrable prototype within a hackathon setting.">Led our Education Track team at HackMIT China 2026 and co-developed WashPal, a handwashing system designed for children. The project combines OpenCV and Raspberry Pi to assess handwashing technique and provide real-time feedback, with the aim of making hygiene education more interactive. Bringing together computer vision, physical hardware, and an educational use case, WashPal gave us an opportunity to turn an everyday need into a demonstrable prototype within a hackathon setting.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2025-11-16">
+                <div class="timeline-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="Maker Faire Shenzhen 及 Maker Faire Tokyo 展覽者" data-en="Maker Faire Shenzhen & Maker Faire Tokyo Exhibitor">Maker Faire Shenzhen & Maker Faire Tokyo Exhibitor</h3>
+                        <div class="timeline-time" data-zh="2025年11月15日至16日" data-en="Nov 15 - 16, 2025">Nov 15 - 16, 2025</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="於 Maker Faire Tokyo 及 Maker Faire Shenzhen 展示 GUIDE 科技項目，透過現場示範向參觀者介紹項目構思與相關技術。面對不同背景的觀眾，我需要以清晰易懂的方式解釋技術概念，並把重點放在項目的用途與互動體驗。這些展覽讓我有機會走出開發環境，與創客及公眾交流，從使用者的角度重新思考如何呈現科技作品。" data-en="Exhibited GUIDE technology projects at Maker Faire Tokyo and Maker Faire Shenzhen, sharing project ideas and demonstrating the technology to visitors. Presenting to people with different backgrounds challenged me to explain technical concepts clearly and connect each demonstration to its practical purpose. These exhibitions offered a chance to step beyond development, exchange ideas with makers and the public, and think more carefully about how people encounter and understand a technology project.">Exhibited GUIDE technology projects at Maker Faire Tokyo and Maker Faire Shenzhen, sharing project ideas and demonstrating the technology to visitors. Presenting to people with different backgrounds challenged me to explain technical concepts clearly and connect each demonstration to its practical purpose. These exhibitions offered a chance to step beyond development, exchange ideas with makers and the public, and think more carefully about how people encounter and understand a technology project.</p>
+                    <div class="achievement-media"><img src="assets/images/vi-college-international-maker-faire-demo.jpg" alt="Demonstrating a smart medication reminder project at the VI College International Maker Faire"></div>
+                    <div class="achievement-media"><img src="assets/images/maker-faire-shenzhen-exhibitor.jpg" alt="Dior Wang exhibiting a project at Maker Faire Shenzhen"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2025-08-30">
+                <div class="timeline-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="國際特別獎 — OCIP，iCAN 2025" data-en="International Special Award — OCIP, iCAN 2025">International Special Award — OCIP, iCAN 2025</h3>
+                        <div class="timeline-time" data-zh="2025年8月30日 · 國際" data-en="Aug 30, 2025 · International">Aug 30, 2025 · International</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="於 iCAN 2025 獲得 OCIP 頒發的國際特別獎，為我的創新項目經歷增添一項國際層面的肯定。這項榮譽對我而言，是持續探索技術構思並將其付諸實踐的鼓勵，也提醒我在開發過程中兼顧創意與實際用途。我希望以此為動力，繼續完善作品，探索更多值得解決的問題。" data-en="Received an International Special Award from OCIP at iCAN 2025, adding an international recognition to my experience in innovation projects. For me, the award is encouragement to keep exploring technical ideas and turning them into practical work. It also serves as a reminder to balance creativity with usefulness as I continue developing projects and looking for meaningful problems to solve.">Received an International Special Award from OCIP at iCAN 2025, adding an international recognition to my experience in innovation projects. For me, the award is encouragement to keep exploring technical ideas and turning them into practical work. It also serves as a reminder to balance creativity with usefulness as I continue developing projects and looking for meaningful problems to solve.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2025-08-30">
+                <div class="timeline-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="國際特別獎 — Eurobusiness & Haller Pro Inventio Foundation，iCAN 2025" data-en="International Special Award — Eurobusiness & Haller Pro Inventio Foundation, iCAN 2025">International Special Award — Eurobusiness & Haller Pro Inventio Foundation, iCAN 2025</h3>
+                        <div class="timeline-time" data-zh="2025年8月30日 · 國際" data-en="Aug 30, 2025 · International">Aug 30, 2025 · International</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="於 iCAN 2025 獲得 Eurobusiness & Haller Pro Inventio Foundation 國際特別獎。" data-en="Received an International Special Award from the Eurobusiness & Haller Pro Inventio Foundation at iCAN 2025.">Received an International Special Award from the Eurobusiness & Haller Pro Inventio Foundation at iCAN 2025.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2026-03-29">
+                <div class="timeline-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="HackMIT China 2026 教育組第一名" data-en="HackMIT China 2026 First Place in the Education Track">HackMIT China 2026 First Place in the Education Track</h3>
+                        <div class="timeline-time" data-zh="2026年3月27日至29日 · 全國" data-en="Mar 27 - 29, 2026 · National">Mar 27 - 29, 2026 · National</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="在 HackMIT China 2026 教育組獲得第一名。" data-en="Won first place in the Education Track at HackMIT China 2026.">Won first place in the Education Track at HackMIT China 2026.</p>
+                    <div class="achievement-media"><img src="assets/images/hackmit-china-2026-education-first-place.png" alt="HackMIT China 2026 First Place in the Education Track certificate"></div>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-date="2026-03-29">
+                <div class="timeline-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="HackMIT China 2026 總體組別第三名" data-en="HackMIT China 2026 Third Place in the Overall Category">HackMIT China 2026 Third Place in the Overall Category</h3>
+                        <div class="timeline-time" data-zh="2026年3月27日至29日 · 全國" data-en="Mar 27 - 29, 2026 · National">Mar 27 - 29, 2026 · National</div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="在 HackMIT China 2026 總體組別獲得第三名。" data-en="Won third place in the Overall Category at HackMIT China 2026.">Won third place in the Overall Category at HackMIT China 2026.</p>
+                    <div class="achievement-media"><img src="assets/images/hackmit-china-2026-overall-third-place.png" alt="HackMIT China 2026 Third Place in the Overall Category certificate"></div>
+                </div>
+            </div>
+
+
+            <div class="timeline-item" data-date="2024-09-30"><div class="timeline-icon"><i class="fas fa-trophy"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="智慧校園項目比賽第三名" data-en="Third Prize, Smart Campus Project Contest">Third Prize, Smart Campus Project Contest</h3><div class="timeline-time" data-zh="2024年 · 第三名" data-en="2024 · Third Prize">2024 · Third Prize</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="於智慧校園培訓計劃 2024 的 Smart Campus Project Contest 獲得第三名。" data-en="Received third prize in the Smart Campus Project Contest, part of the Smart Campus x InnoTech Taster Program 2024.">Received third prize in the Smart Campus Project Contest, part of the Smart Campus x InnoTech Taster Program 2024.</p><div class="achievement-media"><img src="200d8103a9ef9a7ef840ae8fb091ebe0.jpg" alt="Third prize trophy for the Smart Campus Project Contest"></div></div></div>
+            <div class="timeline-item" data-date="2025-10-19"><div class="timeline-icon"><i class="fas fa-certificate"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="耶魯大學國際關係營結業證書" data-en="Yale International Relations Camp Certificate">Yale International Relations Camp Certificate</h3><div class="timeline-time" data-zh="2025年10月17日至19日" data-en="Oct 17 - 19, 2025">Oct 17 - 19, 2025</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="完成耶魯大學國際關係協會於香港舉辦的國際關係營。" data-en="Completed the Yale International Relations Camp in Hong Kong, organized by the Yale International Relations Association.">Completed the Yale International Relations Camp in Hong Kong, organized by the Yale International Relations Association.</p><div class="achievement-media"><img src="image.png" alt="Yale International Relations Camp Certificate of Completion"></div></div></div>
+            <div class="timeline-item" data-date="2021-12-08"><div class="timeline-icon"><i class="fas fa-robot"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="智能機械人課程證書" data-en="Intelligent Robotics Course Certificate">Intelligent Robotics Course Certificate</h3><div class="timeline-time" data-zh="2021年12月8日" data-en="Dec 8, 2021">Dec 8, 2021</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="完成智能機械人組裝及編程課程。" data-en="Completed a course in assembling and programming an intelligent robot.">Completed a course in assembling and programming an intelligent robot.</p><div class="achievement-media"><img src="1b874699f31863d870dea3d29da03bd3.jpg" alt="Certificate for completing the intelligent robot course"></div></div></div>
+
+            <div class="timeline-item" data-date="2020-09-30"><div class="timeline-icon"><i class="fas fa-certificate"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="商業智能課程證書" data-en="Business Intelligence Course Certificate">Business Intelligence Course Certificate</h3><div class="timeline-time" data-zh="2020年9月30日" data-en="Sep 30, 2020">Sep 30, 2020</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="完成商業智能方向的核心能力提升課程。" data-en="Completed the Competitive Capacity Enhancement course in Business Intelligence.">Completed the Competitive Capacity Enhancement course in Business Intelligence.</p><div class="achievement-media"><img src="b22e56322b00ee8265d0f094f67c40d5.png" alt="Business intelligence course certificate"></div></div></div>
+            <div class="timeline-item" data-date="2020-07-20"><div class="timeline-icon"><i class="fas fa-certificate"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="Python 語法與爬蟲分析課程證書" data-en="Python Grammar and Web Scraping Analysis Course Certificate">Python Grammar and Web Scraping Analysis Course Certificate</h3><div class="timeline-time" data-zh="2020年7月20日" data-en="Jul 20, 2020">Jul 20, 2020</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="完成 Python 語法爬蟲分析課程。" data-en="Completed the Python Grammar and Web Scraping Analysis course.">Completed the Python Grammar and Web Scraping Analysis course.</p><div class="achievement-media"><img src="b61676429e3f8198d9e031331173ac86.png" alt="Python grammar and web scraping analysis course certificate"></div></div></div>
+
+            <div class="timeline-item" data-date="2022-12-31"><div class="timeline-icon"><i class="fas fa-award"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="2022 Open Data Hackathon Smart Property 組別 — Best of Tech Award" data-en="2022 Open Data Hackathon Smart Property — Best of Tech Award">2022 Open Data Hackathon Smart Property — Best of Tech Award</h3><div class="timeline-time" data-zh="2022年 · Secondary Stream" data-en="2022 · Secondary Stream">2022 · Secondary Stream</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="於 2022 Open Data Hackathon Smart Property Secondary Stream 獲得 Best of Tech Award。" data-en="Received the Best of Tech Award in the Secondary Stream of the 2022 Open Data Hackathon Smart Property competition.">Received the Best of Tech Award in the Secondary Stream of the 2022 Open Data Hackathon Smart Property competition.</p>
+                    <div class="achievement-media"><img src="assets/images/open-data-hackathon-2022-finalists.jpg" alt="Dior Wang and teammates at the Open Data Conference cum Hackathon Final 2022 for Smart Property"></div><div class="achievement-media"><img src="assets/images/open-data-hackathon-2022-smart-property-awards.jpg" alt="Open Data Hackathon 2022 Smart Property Secondary Stream Best of Tech Award trophy"></div></div></div>
+            <div class="timeline-item" data-date="2022-12-31"><div class="timeline-icon"><i class="fas fa-medal"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="2022 Open Data Hackathon Smart Property 組別 — 第二名" data-en="2022 Open Data Hackathon Smart Property — Second Prize">2022 Open Data Hackathon Smart Property — Second Prize</h3><div class="timeline-time" data-zh="2022年 · Secondary Stream" data-en="2022 · Secondary Stream">2022 · Secondary Stream</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="於 2022 Open Data Hackathon Smart Property Secondary Stream 獲得第二名。" data-en="Won Second Prize in the Secondary Stream of the 2022 Open Data Hackathon Smart Property competition.">Won Second Prize in the Secondary Stream of the 2022 Open Data Hackathon Smart Property competition.</p>
+                    <div class="achievement-media"><img src="assets/images/open-data-hackathon-2022-finalists.jpg" alt="Dior Wang and teammates at the Open Data Conference cum Hackathon Final 2022 for Smart Property"></div><div class="achievement-media"><img src="assets/images/open-data-hackathon-2022-smart-property-awards.jpg" alt="Open Data Hackathon 2022 Smart Property Secondary Stream Second Prize trophy"></div></div></div>
+
+            <div class="timeline-item" data-date="2024-12-31"><div class="timeline-icon"><i class="fas fa-award"></i></div><div class="timeline-content"><div class="achievement-header" onclick="toggleDropdown(this)"><h3 data-zh="Preface Nomad Awards 2024 科技比賽亞軍" data-en="Preface Nomad Awards 2024 Tech Competition Second Runner-Up">Preface Nomad Awards 2024 Tech Competition Second Runner-Up</h3><div class="timeline-time" data-zh="2024年 · 科技比賽" data-en="2024 · Tech Competition">2024 · Tech Competition</div><i class="dropdown-icon fas fa-chevron-down"></i></div><p data-zh="於 Preface Nomad Awards Tech Competition 2024 獲得 Second Runner-Up。" data-en="Received Second Runner-Up in the Preface Nomad Awards Tech Competition 2024.">Received Second Runner-Up in the Preface Nomad Awards Tech Competition 2024.</p><div class="achievement-media"><img src="assets/images/preface-nomad-awards-2024-second-runner-up.jpg" alt="Receiving the Second Runner-Up award at Preface Nomad Awards Tech Competition 2024"></div></div></div>
+            <!-- <div class="timeline-item">
+                <div class="timeline-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="timeline-content">
+                    <div class="achievement-header" onclick="toggleDropdown(this)">
+                        <h3 data-zh="AI創新大賽冠軍" 
+                            data-en="AI Innovation Challenge Winner">
+                            AI Innovation Challenge Winner
+                        </h3>
+                        <div class="timeline-time" 
+                            data-zh="2024年3月" 
+                            data-en="March 2024">
+                            March 2024
+                        </div>
+                        <i class="dropdown-icon fas fa-chevron-down"></i>
+                    </div>
+                    <p data-zh="開發了創新的醫療AI診斷系統"
+                       data-en="Developed an innovative medical AI diagnostic system">
+                        Won first place in the regional AI Innovation Challenge with a computer vision system that detects early signs of diabetic retinopathy with 96% accuracy.
+                    </p>
+                </div>
+            </div> -->
         </div>
     </section>
 
-    <!-- 修改 Contact 部分 -->
     <section id="contact" class="hidden">
         <h2 data-zh="聯繫方式" data-en="Contact">Contact</h2>
         <div class="contact-container">
-            <!-- WhatsApp -->
             <a href="https://wa.me/85251726781" target="_blank" rel="noopener noreferrer" class="contact-item">
                 <div class="contact-icon">
                     <i class="fab fa-whatsapp"></i>
@@ -133,7 +306,6 @@
                 </div>
             </a>
 
-            <!-- Email -->
             <a href="mailto:diorwang1206@gmail.com" class="contact-item">
                 <div class="contact-icon">
                     <i class="fas fa-envelope"></i>
@@ -144,21 +316,23 @@
                 </div>
             </a>
 
-            <!-- GitHub -->
             <a href="https://github.com/Dyeus-wwww" target="_blank" rel="noopener noreferrer" class="contact-item">
                 <div class="contact-icon">
                     <i class="fab fa-github"></i>
                 </div>
                 <div class="contact-info">
-                    <span class="contact-label" data-zh="代碼倉庫" data-en="GitHub">GitHub</span>
+                    <span class="contact-label" data-zh="GitHub" data-en="GitHub">GitHub</span>
                     <span class="contact-detail">Dyeus-wwww</span>
                 </div>
             </a>
+            
         </div>
     </section>
 
-    <script src="js/script.js"></script>
+    <footer>
+        <p>&copy; 2024 Dior Wang. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/script.js?v=5"></script>
 </body>
 </html>
-
-
