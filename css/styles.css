@@ -483,6 +483,49 @@ h2::after {
     border: 1px solid var(--border);
     border-radius: 10px;
     background: white;
+    cursor: zoom-in;
+}
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    place-items: center;
+    padding: 3rem 1rem 1rem;
+    background: rgb(0 0 0 / 88%);
+}
+
+.image-lightbox[aria-hidden="false"] {
+    display: grid;
+}
+
+.image-lightbox-image {
+    max-width: min(96vw, 1400px);
+    max-height: calc(100vh - 4rem);
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+}
+
+.image-lightbox-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgb(255 255 255 / 50%);
+    border-radius: 50%;
+    color: white;
+    background: rgb(0 0 0 / 45%);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.image-lightbox-close:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
 }
 
 .contact-container {

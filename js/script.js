@@ -1,4 +1,5 @@
 let currentLang = 'en';
+let lightboxTrigger = null;
 
 // Show section
 function showSection(sectionId) {
@@ -65,6 +66,31 @@ function toggleDropdown(header) {
     icon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
 }
 
+function openImageLightbox(image) {
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImage = lightbox.querySelector('.image-lightbox-image');
+    lightboxTrigger = image;
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightbox.querySelector('.image-lightbox-close').focus();
+}
+
+function closeImageLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    if (lightbox.getAttribute('aria-hidden') === 'true') {
+        return;
+    }
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.querySelector('.image-lightbox-image').removeAttribute('src');
+    document.body.style.overflow = '';
+    if (lightboxTrigger) {
+        lightboxTrigger.focus();
+        lightboxTrigger = null;
+    }
+}
+
 function sortAchievements() {
     const container = document.querySelector('.timeline-container');
     if (!container) {
@@ -114,6 +140,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleDropdown(header);
             }
         });
+    });
+
+    document.querySelectorAll('.achievement-media img').forEach(image => {
+        image.setAttribute('role', 'button');
+        image.setAttribute('tabindex', '0');
+        image.setAttribute('aria-haspopup', 'dialog');
+        image.addEventListener('click', () => openImageLightbox(image));
+        image.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openImageLightbox(image);
+            }
+        });
+    });
+
+    const imageLightbox = document.getElementById('image-lightbox');
+    imageLightbox.querySelector('.image-lightbox-close').addEventListener('click', closeImageLightbox);
+    imageLightbox.addEventListener('click', event => {
+        if (event.target === imageLightbox) {
+            closeImageLightbox();
+        }
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeImageLightbox();
+        }
     });
     
     showSection('home');
