@@ -59,8 +59,10 @@ function toggleTheme() {
 // Toggle achievement dropdown
 function toggleDropdown(header) {
     const icon = header.querySelector('.dropdown-icon');
-    header.classList.toggle('active');
-    icon.style.transform = header.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+    const content = header.closest('.timeline-content');
+    const isExpanded = content.classList.toggle('expanded');
+    header.setAttribute('aria-expanded', String(isExpanded));
+    icon.style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
 }
 
 function sortAchievements() {
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.achievement-header').forEach(header => {
         header.setAttribute('role', 'button');
         header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
         header.addEventListener('keydown', event => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
@@ -116,11 +119,4 @@ document.addEventListener('DOMContentLoaded', () => {
     showSection('home');
     sortAchievements();
     
-    // Auto-open first achievement
-    setTimeout(() => {
-        const firstAchievement = document.querySelector('.achievement-header');
-        if (firstAchievement) {
-            toggleDropdown(firstAchievement);
-        }
-    }, 1500);
 });
